@@ -42,13 +42,12 @@ int main()
 
 bool reverseString(string wordInput)
 {
-	string reverse;
 	int index;
 	int letCount = wordInput.length();
 	int compCount = letCount / 2;
 	for(index = 0; index < compCount; index++)
 	{
-		if(wordInput.at(index) == wordInput.at(letCount - 1 - index))
+		if(tolower(wordInput.at(index)) == tolower(wordInput.at(letCount - 1 - index)))
 		{
 			continue;
 		}
