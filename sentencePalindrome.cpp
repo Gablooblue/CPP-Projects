@@ -3,15 +3,17 @@
 
 using namespace std;
 
+#define STRING_START 0
+#define SUCCEEDING_LETTER 1
+#define PREVIOUS_LETTER -1
+
 bool reverseString(string wordInput);
 
 int main()
 {
 	int palindrome_count = 0, begin = 0, y, letters;
 	bool result;
-	int STRING_START = 0;
-	int LETTER_AFTER = 1;
-	string wordInput, word;
+		string wordInput, word;
 
 	cout << "Input a string here > ";
 	getline(cin,wordInput);
@@ -25,7 +27,7 @@ int main()
 			}
 			else
 			{
-				begin = x + LETTER_AFTER;
+				begin = x + SUCCEEDING_LETTER;
 			}
 			letters = 0;
 			for(y = begin; y < wordInput.length() && wordInput.at(y) != ' ' ; y++)
@@ -45,12 +47,11 @@ int main()
 bool reverseString(string wordInput)
 {
 	int i;
-	int letters = wordInput.length();
-	int comparisons = letters / 2;
-	int PREVIOUS_LETTER = -1;
+	int letter_count = wordInput.length();
+	int comparisons =  letter_count / 2;
 	for(i = 0; i < comparisons; i++)
 	{
-		if(tolower(wordInput.at(i)) == tolower(wordInput.at(letters + PREVIOUS_LETTER - i)))
+		if(tolower(wordInput.at(i)) == tolower(wordInput.at( letter_count - i + PREVIOUS_LETTER )))
 		{
 			continue;
 		}
