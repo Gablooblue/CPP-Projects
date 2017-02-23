@@ -7,47 +7,50 @@ bool reverseString(string wordInput);
 
 int main()
 {
-	int palindromeCount = 0, begin = 0, y, letCount;
+	int palindrome_count = 0, begin = 0, y, letters;
 	bool result;
+	int STRING_START = 0;
+	int LETTER_AFTER = 1;
 	string wordInput, word;
 
 	cout << "Input a string here > ";
 	getline(cin,wordInput);
 	for(int x = 0; x < wordInput.length(); x++)
 	{
-		if(wordInput.at(x) == ' ' || x == 0)
+		if(wordInput.at(x) == ' ' || x == STRING_START)
 		{
-			if(x == 0 && wordInput.at(0) != ' ')
+			if(x == 0 && wordInput.at(STRING_START) != ' ')
 			{
-				begin = 0;
+				begin = STRING_START;
 			}
 			else
 			{
-				begin = x + 1;
+				begin = x + LETTER_AFTER;
 			}
-			letCount = 0;
+			letters = 0;
 			for(y = begin; y < wordInput.length() && wordInput.at(y) != ' ' ; y++)
 			{
-				letCount++;
+				letters++;
 			}
-			word = wordInput.substr(begin, letCount);
+			word = wordInput.substr(begin, letters);
 			if(reverseString(word) == true)
 			{
-				palindromeCount++;
+				palindrome_count++;
 			}
 		}
 	}
-	cout << "There are " << palindromeCount << " palindromes";
+	cout << "There are " << palindrome_count << " palindromes";
 }
 
 bool reverseString(string wordInput)
 {
-	int index;
-	int letCount = wordInput.length();
-	int compCount = letCount / 2;
-	for(index = 0; index < compCount; index++)
+	int i;
+	int letters = wordInput.length();
+	int comparisons = letters / 2;
+	int PREVIOUS_LETTER = -1;
+	for(i = 0; i < comparisons; i++)
 	{
-		if(tolower(wordInput.at(index)) == tolower(wordInput.at(letCount - 1 - index)))
+		if(tolower(wordInput.at(i)) == tolower(wordInput.at(letters + PREVIOUS_LETTER - i)))
 		{
 			continue;
 		}
