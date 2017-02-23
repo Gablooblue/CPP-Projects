@@ -1,17 +1,20 @@
 #include <iostream>
+
 using namespace std;
 
+#define UPPER_LIMIT 10000
 int main()
 {
-	unsigned int primeNumber;
+	unsigned int primeNumber, previous_number;
 	bool divisible;
 
-	for(int x = 2; x < 10000; x++)
+	for(int i = 2; i < UPPER_LIMIT; i++)
 	{
 		divisible = false;
-		for(int y = x - 1 ; y > 0; y--)
+		previous_number = i - 1;
+		for(int j = previous_number ; j > 0; j--)
 		{
-			if(x % y == 0 && y != 1)
+			if(i % j == 0 && j != 1)
 			{
 				divisible = true;
 				break;
@@ -19,7 +22,7 @@ int main()
 		}
 		if(divisible == false)
 		{
-			cout << x << " ";
+			cout << i << " ";
 		}
 	}
 }
