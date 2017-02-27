@@ -10,15 +10,9 @@ using namespace std;
  */
 OrderedPair* OrderedPair::getPairs(string first, string second, OrderedPair pairs[],int pair_num,  int arr_index)
 {
-	//Initializing a pointer object 
-	OrderedPair *pointer;
-
-	pointer = pairs;
-
+	//setting object values
 	pairs[arr_index].first = first;
 	pairs[arr_index].second = second;
-
-	return pointer;
 }	
 
 int main()
