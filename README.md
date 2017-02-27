@@ -14,5 +14,5 @@ Gets a sentence and checks how many palindromes are there in the sentence
 Prints all prime numbers from 1-10,000
 
 ##Ordered Pair
-First exercise about OOP(Although it's not really OOP yet). Gets all the possible pairs between two sets.
+First exercise about OOP. Gets all the possible pairs between two sets.
 
