@@ -5,14 +5,25 @@
 using namespace std;
 
 /** 
- * @param first, second, pairs, i, j, arr_index
- * @return pointer which points to pairs address
+ * @param first, second, pairs 
+ * @return pairs 
  */
-OrderedPair* OrderedPair::getPairs(string first, string second, OrderedPair pairs[],int pair_num,  int arr_index)
+OrderedPair OrderedPair::getPairs(string first[], int first_len, string second[], int sec_len, OrderedPair pairs[],int pair_num)
 {
-	//setting object values
-	pairs[arr_index].first = first;
-	pairs[arr_index].second = second;
+	//I used arr_index because i couldn't figure out how to pass 2d arrays
+	//If ur mad then bite me
+	int arr_index = 0;
+	//Gets all possible pairs
+	for(int i = 0; i < first_len; i++)	
+	{
+		for(int j = 0; j < sec_len; j++)
+		{
+			//setting object values
+			pairs[arr_index].first = first[i];
+			pairs[arr_index].second = second[j];
+			arr_index++;
+		}	
+	}	
 }	
 
 int main()
@@ -51,18 +62,7 @@ int main()
 		cin >> second[i];
 	}
 
-	//calls Cartesian Product function 
-	//I used arr_index because I couldn't figure out how to pass a 2d array :p
-	//If ur angry bite me
-	arr_index= 0;
-	for(int i = 0; i < first_len; i++)
-	{	
-		for(int j = 0; j < sec_len; j++)
-		{	
-			pairs[arr_index].getPairs(first[i], second[j], pairs, pair_num, arr_index);
-			arr_index++;
-		}	
-	}	
+	pairs[pair_num].getPairs(first, first_len, second, sec_len, pairs, pair_num);
 	//prints out all pairs
 	for(int i = 0; i < pair_num; i++)
 	{
