@@ -4,11 +4,26 @@
 
 using namespace std;
 
-string *CartesianProduct(string first[], int first_len, string second[], int sec_len, string result[], int pair_num);
+/** 
+ * @param first, second, pairs, i, j, arr_index
+ * @return pointer which points to pairs address
+ */
+OrderedPair* OrderedPair::getPairs(string first, string second, OrderedPair pairs[],int pair_num,  int arr_index)
+{
+	//Initializing a pointer object 
+	OrderedPair *pointer;
+
+	pointer = pairs;
+
+	pairs[arr_index].first = first;
+	pairs[arr_index].second = second;
+
+	return pointer;
+}	
 
 int main()
 {
-	int first_len, sec_len, pair_num ;
+	int first_len, sec_len, pair_num, arr_index; 
 
 	//Asks how many elements in each group
 	cout << "How many elements in first? ";
@@ -22,10 +37,10 @@ int main()
 	 * 	cardinality of first and second sets
 	 */
 	pair_num = first_len * sec_len;
-	//Creates results element
-	string result[pair_num];
-	//A pointer which will point to the result array later on
-	string *pairs;
+
+	//Creating a pairs object 
+	OrderedPair pairs[pair_num];
+
 	//Of course the arrays for first and second sets
 	string first[first_len], second[sec_len];
 
@@ -43,38 +58,27 @@ int main()
 	}
 
 	//calls Cartesian Product function 
-	pairs = CartesianProduct(first, first_len, second, sec_len, result, pair_num);
-
-	//prints out all the pairs
+	//I used arr_index because I couldn't figure out how to pass a 2d array :p
+	//If ur angry bite me
+	arr_index= 0;
+	for(int i = 0; i < first_len; i++)
+	{	
+		for(int j = 0; j < sec_len; j++)
+		{	
+			pairs[arr_index].getPairs(first[i], second[j], pairs, pair_num, arr_index);
+			arr_index++;
+		}	
+	}	
+	//prints out all pairs
 	for(int i = 0; i < pair_num; i++)
 	{
-		cout << pairs[i] << endl;
-	}
+		cout << '('
+		     << pairs[i].first
+		     << ','
+		     << pairs[i].second
+		     << ')'
+		     << " ";
+	}	
 }
 
-/**
- * @params first array and cardinality,
- * 	second array and cardinality,
- * 		result array and cardinality
- *
- * @return pointer that points to the address of the result array
- */
-string *CartesianProduct(string first[], int first_len, string second[], int sec_len, string result[], int pair_num)
-{
-	//This index is incremented to put values in every element of the array
-	int arr_index = 0;
 
-	// pointer string that points to the result array
-	string *pointer; 
-	pointer = result;
-
-	for(int i = 0; i < first_len; i++)
-	{
-		for(int j = 0; j < sec_len; j++)
-		{
-			result[arr_index]  = "(" + first[i] + ", " + second[j] + ")";
-			arr_index++;
-		}
-	}
-	return pointer;
-}
