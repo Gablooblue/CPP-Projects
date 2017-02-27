@@ -4,11 +4,6 @@
 
 using namespace std;
 
-OrderedPair::OrderedPair()
-{
-	first = second = "0";
-}
-
 
 
 
