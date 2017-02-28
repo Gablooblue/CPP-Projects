@@ -16,3 +16,5 @@ Prints all prime numbers from 1-10,000
 ##Ordered Pair
 First exercise about OOP. Gets all the possible pairs between two sets.
 
+##Counting Letters
+Counts the occurences of letters in file and outputs the count to another file
