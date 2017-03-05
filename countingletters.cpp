@@ -46,7 +46,7 @@ void CountLetters(string filename)
 		letter_ascii = tolower(letter) - '0' - ASCII_LOWERCASE;
 
 		//Checks if the value is a letter
-		if(letter_ascii >= 0 && letter_ascii < 26)
+		if(letter_ascii >= 0 && letter_ascii < LETTERS_IN_ALPHABET)
 		{	
 			//Increments the values of the specific letter
 			letter_count[letter_ascii]++;
