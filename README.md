@@ -21,3 +21,6 @@ A collection of exercises I made for school projects
 
 * Sieve of Erastosthenes
   * Finds and sieves all non-prime numbers between a certain interval and prints them out.
+
+* NQueens
+  * Finds solutions to the 8 queens problem by using backtracking
