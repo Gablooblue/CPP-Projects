@@ -7,7 +7,7 @@ class Node
 	void setNext(Node *node);
 	int getValue();
 	Node *next;
-    private:
 	int value;
+    private:
 
 };
