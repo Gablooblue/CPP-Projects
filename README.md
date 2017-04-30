@@ -24,3 +24,6 @@ A collection of exercises I made for school projects
 
 * NQueens
   * Finds solutions to the 8 queens problem by using backtracking
+
+* Alternating Split
+  * Splits a linked list into two depending on whether its element is in an odd or even position on the list

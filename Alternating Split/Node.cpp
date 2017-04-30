@@ -11,7 +11,7 @@ Node::Node()
 
 void Node::setNext(Node *node)
 {
-    *next = *node;
+    next = node;
 }
 
 int Node::getValue()
