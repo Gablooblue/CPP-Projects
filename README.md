@@ -27,3 +27,7 @@ A collection of exercises I made for school projects
 
 * Alternating Split
   * Splits a linked list into two depending on whether its element is in an odd or even position on the list
+
+* Postfix
+  * Converts an Infix equation into a Postfix equation
+
