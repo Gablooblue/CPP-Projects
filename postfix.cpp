@@ -30,6 +30,7 @@ int main()
 	{
 	    if(!expressions.empty())
 	    {
+		temp = expressions.top();
 		while(temp != '('  && !expressions.empty())
 		{
 		    cout << temp;
